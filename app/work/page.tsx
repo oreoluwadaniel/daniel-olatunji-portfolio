@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
+const basePath = "/daniel-olatunji-portfolio";
+
 export default function WorkPage() {
   return <main>
     <section className="section">
@@ -10,7 +12,7 @@ export default function WorkPage() {
         <p className="lead">A collection of projects covering revenue, retail, CRM data, data quality, operations, forecasting and automation.</p>
         <div className="project-grid">
           {projects.map(p=><article className="card project-card" key={p.slug}>
-            <img className="cover" src={p.cover} alt={`${p.title} project cover`} />
+            <img className="cover" src={`${basePath}${p.cover}`} alt={`${p.title} project cover`} />
             <div className="content">
               <div className="meta">{p.category}</div>
               <h3>{p.title}</h3>
