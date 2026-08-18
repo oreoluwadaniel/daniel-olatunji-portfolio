@@ -44,13 +44,25 @@ For a production build:
 
 ```bash
 npm run build
-npm start
 ```
 
 ## Deployment
 
-The project is structured for deployment on Vercel. No database or environment variables are required by the portfolio site itself.
+The site is configured as a static Next.js export for GitHub Pages. A GitHub Actions workflow builds the `out` directory and deploys it through GitHub Pages.
+
+Expected site URL:
+
+`https://oreoluwadaniel.github.io/daniel-olatunji-portfolio/`
 
 ## Personal assets
 
-The final local portfolio package also contains Daniel's CV PDF and professional photograph. The connected GitHub publishing interface used in this session cannot transfer binary PDF/JPG files directly, so those two binary assets still need to be added through GitHub's file upload UI before the CV download and portrait are fully live.
+The application expects these final assets:
+
+- `public/images/daniel-olatunji.jpg`
+- `public/cv/Daniel-Olatunji-CV.pdf`
+
+The source repository currently contains the project-cover assets, but the professional portrait and CV PDF still need to be uploaded as binary files before those two features are fully live.
+
+## Repository purpose
+
+The portfolio website is the presentation layer. The GitHub repositories linked from the case studies provide the technical evidence, data definitions, validation notes, implementation details and analysis behind the work.
