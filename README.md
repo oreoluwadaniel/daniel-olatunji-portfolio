@@ -1,68 +1,60 @@
-# Daniel Olatunji Portfolio
+# Daniel Olatunji — Portfolio
 
-**Data Analyst | Business Intelligence Analyst**
+**Data Analyst | Business Intelligence Analyst — Lagos, Nigeria**
 
-I clean up messy data, fix reporting problems, automate repetitive work, and build practical systems that help businesses understand performance and act on it.
+Live: **https://daniel-olatunji-portfolio.vercel.app**
 
-This repository contains the source code for my portfolio website and its case-study presentation layer.
+Four years of finding out why the numbers moved and what to do about it: revenue, customers, risk, logistics,
+forecasting and the data-quality problems sitting underneath them.
 
-## Website sections
+This repository is the presentation layer for the portfolio. The case studies explain the business question,
+data, method, findings, judgement and limits. Public repositories are linked where they are published.
 
-- Home
-- Selected Work
-- Detailed Case Studies
-- About
-- Experience
-- Services
-- Contact
+## Case studies
 
-## Featured case studies
+| Project | Field | Data basis | Repository |
+| --- | --- | --- | --- |
+| WeatherIntel: Forecast Evaluation | Forecasting, data engineering | Real NOAA GHCN-Daily, 371,482 station-days | [repo](https://github.com/oreoluwadaniel/weatherintel-global-weather-analytics) |
+| Data Analytics & ETL Portfolio | Data quality, ETL | Four project datasets | [repo](https://github.com/oreoluwadaniel/data-analytics-etl-portfolio) |
+| Bloomcrest Revenue Intelligence | Revenue analytics | Engineered, 18,000 customers | [repo](https://github.com/oreoluwadaniel/bloomcrest-revenue-intelligence) |
+| Everdale Retail Analytics | Retail BI | Engineered, 194,480 order lines | [repo](https://github.com/oreoluwadaniel/everdale-retail-analytics) |
+| Kavora CRM Migration | Migration, data quality | Project dataset, 4,755 rows | [repo](https://github.com/oreoluwadaniel/kavora-crm-migration-data-governance) |
+| Portfolio Risk & Forecast Monitoring | Financial analytics | Real market data, 21,380 records | Not publicly linked |
+| Stratavax Logistics Analytics | Operations analytics | Engineered, 6 related tables | Not publicly linked |
+| Brightwatt Operations | Process design | Modelled company | [repo](https://github.com/oreoluwadaniel/Brightwatt-Operations-Automation) |
+| GlobalCart Customer Intelligence & RFM Analytics | Customer analytics | 100,000 customers, 500,000 orders, 1.5M order items | Not publicly linked |
+| B2B SaaS Customer & Revenue Analytics | SaaS analytics | 2.58M records, 10 tables | Not publicly linked |
 
-1. Everdale Retail Analytics
-2. Kavora CRM Migration & Data Governance
-3. Bloomcrest Revenue Intelligence & Revenue Operations
-4. WeatherIntel
-5. Stock Performance, Risk & Forecast Monitoring
-6. Brightwatt Operations Automation
-7. Data Analytics & ETL Portfolio
-8. Stratavax Logistics Analytics
+Two projects use real public data. Two additional projects are documented from the CV because their public
+repositories are not currently linked. The remaining projects use datasets engineered to carry specific faults
+worth solving, such as grain mismatches, inconsistent legacy exports and missing master data.
 
-## Technical stack
+## Stack
 
-Next.js · React · TypeScript · SQL · Python · PostgreSQL · Power BI · Excel · Power Query · DAX · Workflow Automation
+Next.js 16 (App Router, static export) · React 19 · TypeScript · CSS custom properties · `next/font` (Inter)
 
-## Run locally
+No CSS framework and no component library. Project covers are analytical visuals rather than generic stock images.
+
+## Running locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open `http://localhost:3000`.
-
-For a production build:
+Production build:
 
 ```bash
 npm run build
+npx tsc --noEmit
 ```
 
 ## Deployment
 
-The site is configured as a static Next.js export for GitHub Pages. A GitHub Actions workflow builds the `out` directory and deploys it through GitHub Pages.
+Deployed on Vercel from `main`. GitHub Actions type-checks and builds on pushes and pull requests.
 
-Expected site URL:
+## Contact
 
-`https://oreoluwadaniel.github.io/daniel-olatunji-portfolio/`
-
-## Personal assets
-
-The application expects these final assets:
-
-- `public/images/daniel-olatunji.jpg`
-- `public/cv/Daniel-Olatunji-CV.pdf`
-
-The source repository currently contains the project-cover assets, but the professional portrait and CV PDF still need to be uploaded as binary files before those two features are fully live.
-
-## Repository purpose
-
-The portfolio website is the presentation layer. The GitHub repositories linked from the case studies provide the technical evidence, data definitions, validation notes, implementation details and analysis behind the work.
+[danolatunji25@gmail.com](mailto:danolatunji25@gmail.com) ·
+[LinkedIn](https://www.linkedin.com/in/daniel-olatunji/) ·
+[GitHub](https://github.com/oreoluwadaniel)
