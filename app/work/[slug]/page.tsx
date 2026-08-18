@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
 
+const basePath = "/daniel-olatunji-portfolio";
+
 export function generateStaticParams() {
   return projects.map(p => ({ slug: p.slug }));
 }
@@ -23,7 +25,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <Link className="btn btn-secondary" href="/contact">Contact Me</Link>
           </div>
         </div>
-        <div className="case-cover"><img src={p.cover} alt={`${p.title} cover`} /></div>
+        <div className="case-cover"><img src={`${basePath}${p.cover}`} alt={`${p.title} cover`} /></div>
       </div>
     </section>
 
