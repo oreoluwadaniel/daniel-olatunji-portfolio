@@ -1,17 +1,19 @@
 import Link from "next/link";
 
 const services = [
-  ["Business Reporting & Dashboards","Turn scattered business data into clear reporting for sales, revenue, customers and operations."],
-  ["Data Cleaning & Quality","Find duplicates, missing information, inconsistent records and other problems before they affect reporting."],
-  ["CRM Data & Migration","Clean, organise and prepare CRM data for migration, reporting and ongoing use."],
-  ["Revenue & Customer Analysis","Analyse revenue, customer behaviour, pipeline, retention and channel performance."],
-  ["Operational Analytics","Use data to investigate inventory, delivery, workforce, cost and process problems."],
-  ["Workflow Automation","Reduce repetitive manual work by connecting business systems, spreadsheets and workflows."]
+  ["Management Reporting", "Build reporting that shows sales, revenue, customers, costs and operational performance clearly."],
+  ["Power BI & Dashboard Development", "Turn prepared business data into dashboards with useful KPIs, trends, comparisons and drill-downs."],
+  ["Data Cleaning & Quality", "Find duplicates, missing information, inconsistent records and exceptions before they distort reporting."],
+  ["Revenue & Customer Analysis", "Analyse revenue, customer behaviour, retention, pipeline and channel performance."],
+  ["Operational Analytics", "Use data to investigate inventory, delivery, workforce, cost and process problems."],
+  ["SQL, ETL & Data Preparation", "Prepare reliable analysis-ready datasets from operational and relational data sources."]
 ];
+
+export const metadata = { title: "Services | Daniel Olatunji", description: "Data analysis, business intelligence, reporting, dashboard development, data quality and operational analytics services.", alternates: { canonical: "https://daniel-olatunji-portfolio.vercel.app/services" }, openGraph: { title: "Services | Daniel Olatunji", description: "Data analysis, business intelligence, reporting and data preparation services.", url: "https://daniel-olatunji-portfolio.vercel.app/services", images: ["/og-image.svg"] } };
 
 export default function ServicesPage() {
   return <main><section className="section"><div className="container">
-    <div className="eyebrow">Services</div><h1>What I can help with.</h1><p className="lead">Practical support for businesses that need cleaner data, clearer reporting or less repetitive manual work.</p>
+    <div className="eyebrow">What I do</div><h1>Data and business intelligence work.</h1><p className="lead">I help teams answer business questions with cleaner data, reliable reporting and analysis that can be checked and explained.</p>
     <div className="service-grid">{services.map(([a,b])=><div className="card" key={a}><h3>{a}</h3><p>{b}</p><Link className="btn btn-secondary" href="/contact">Discuss a project</Link></div>)}</div>
   </div></section></main>;
 }
