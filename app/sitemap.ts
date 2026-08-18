@@ -1,14 +1,11 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/lib/projects";
+import { allProjects } from "@/lib/portfolio-data";
 
-const baseUrl = "https://daniel-olatunji-portfolio.vercel.app";
+export const dynamic = "force-static";
+const siteUrl = "https://daniel-olatunji-portfolio.vercel.app";
+const lastModified = new Date();
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/about", "/work", "/experience", "/services", "/contact", ...projects.map((p) => `/work/${p.slug}`)];
-  return pages.map((path) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: new Date(),
-    changeFrequency: path === "" ? "monthly" : "yearly",
-    priority: path === "" ? 1 : path.startsWith("/work/") ? 0.9 : 0.7,
-  }));
+  const pages: [string, number][] = [["",1],["/work",0.9],["/about",0.8],["/experience",0.8],["/services",0.7],["/contact",0.6],...allProjects.map(p => [`/work/${p.slug}`,0.9] as [string,number])];
+  return pages.map(([path,priority]) => ({url:`${siteUrl}${path}`,lastModified,changeFrequency:path === "" || path === "/work" ? "monthly" : "yearly",priority}));
 }
