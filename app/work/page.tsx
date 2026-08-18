@@ -1,6 +1,24 @@
 import Link from "next/link";
-import { projects } from "@/lib/projects";
+import { allProjects } from "@/lib/portfolio-data";
 
-export const metadata = { title: "Projects", description: "Data analysis and business intelligence case studies covering revenue, retail, customer, data quality, forecasting and operations.", alternates: { canonical: "https://daniel-olatunji-portfolio.vercel.app/work" }, openGraph: { title: "Projects | Daniel Olatunji", description: "Data analysis and business intelligence case studies by Daniel Olatunji.", url: "https://daniel-olatunji-portfolio.vercel.app/work", images: ["/og-image.svg"] } };
+const siteUrl = "https://daniel-olatunji-portfolio.vercel.app";
 
-export default function WorkPage() { return <main><section className="section"><div className="container"><div className="eyebrow">Case studies</div><h1>Data analysis and business intelligence projects.</h1><p className="lead">These projects show how I frame a business question, check the data, choose an analysis approach, validate important results and explain what the findings mean.</p><div className="project-grid">{projects.map(p=><article className="card project-card" key={p.slug}><img className="cover" src={p.cover} alt={`${p.title} project cover`} loading="lazy"/><div className="content"><div className="meta">{p.category}</div><h3>{p.title}</h3><p>{p.short}</p><div className="small">{p.scale}</div><div className="tag-list">{p.tools.map(t=><span className="tag" key={t}>{t}</span>)}</div><div className="card-actions"><Link className="btn btn-primary" href={`/work/${p.slug}`}>Read Case Study</Link>{p.github !== "https://github.com/oreoluwadaniel" && <a className="btn btn-secondary" href={p.github} target="_blank" rel="noreferrer">Project GitHub</a>}</div></div></article>)}</div></div></section></main>; }
+export const metadata = {
+  title: "Projects",
+  description: "Ten data analysis and business intelligence case studies covering revenue, retail, customer, data quality, forecasting, SaaS, logistics and operations.",
+  alternates: { canonical: siteUrl + "/work" },
+  openGraph: { title: "Projects | Daniel Olatunji", description: "Ten data analysis and business intelligence case studies with findings, methods and limits stated clearly.", url: siteUrl + "/work", images: ["/og-image.png"] },
+};
+
+export default function WorkPage() {
+  return <main><section className="section"><div className="container">
+    <div className="eyebrow">Case studies</div>
+    <h1>Ten projects. Each one starts with a business question or a data problem.</h1>
+    <p className="lead">The case studies show the question, the data, the work, the result and the judgement behind the analysis. Where a public repository exists, it is linked.</p>
+    <div className="project-grid">{allProjects.map(p => <article className="card project-card" key={p.slug}>
+      <Link href={`/work/${p.slug}`} className="cover-link"><img className="cover" src={p.cover} alt={`${p.title}: chart summary of the analysis`} width="1600" height="900" loading="lazy" /></Link>
+      <div className="content"><div className="meta">{p.category}</div><h2 className="card-title"><Link href={`/work/${p.slug}`}>{p.title}</Link></h2><p>{p.short}</p><div className="small">{p.scale}</div><div className="tag-list">{p.tools.map(t => <span className="tag" key={t}>{t}</span>)}</div>
+      <div className="card-actions"><Link className="btn btn-primary" href={`/work/${p.slug}`}>Read the case study</Link>{p.github && <a className="btn btn-secondary" href={p.github} target="_blank" rel="noreferrer">Repository</a>}</div></div>
+    </article>)}</div>
+  </div></section></main>;
+}
