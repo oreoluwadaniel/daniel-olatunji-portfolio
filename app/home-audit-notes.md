@@ -1,0 +1,1 @@
+Internal implementation note: homepage refinements applied in the portfolio audit cycle.
