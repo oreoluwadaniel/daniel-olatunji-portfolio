@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -10,19 +10,19 @@ export default function Header() {
     <header className="nav">
       <div className="container nav-inner">
         <Link className="brand" href="/">Daniel Olatunji</Link>
-        <nav className="nav-links">
+        <nav className="nav-links" aria-label="Primary navigation">
           {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
-          <Link className="btn btn-primary" href="/contact">Let's Talk</Link>
+          <Link className="btn btn-primary" href="/contact">Contact Me</Link>
         </nav>
-        <button className="menu" onClick={() => setOpen(!open)} aria-label="Toggle navigation">Menu</button>
+        <button className="menu" type="button" onClick={() => setOpen(!open)} aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-navigation">Menu</button>
       </div>
       {open && (
-        <div className="container" style={{paddingBottom:18}}>
+        <nav id="mobile-navigation" className="container" aria-label="Mobile navigation" style={{paddingBottom:18}}>
           <div className="card" style={{display:"grid", gap:10}}>
             {links.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)}>{label}</Link>)}
-            <Link className="btn btn-primary" href="/contact" onClick={() => setOpen(false)}>Let's Talk</Link>
+            <Link className="btn btn-primary" href="/contact" onClick={() => setOpen(false)}>Contact Me</Link>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );
