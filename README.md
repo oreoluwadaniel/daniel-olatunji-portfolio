@@ -1,24 +1,56 @@
 # Daniel Olatunji Portfolio
 
-Data Analytics, BI & Automation for Business Operations.
+**Data Analyst | Business Intelligence Analyst**
 
-I help businesses clean up unreliable data, improve reporting, automate repetitive work, and turn operational data into decisions.
+I clean up messy data, fix reporting problems, automate repetitive work, and build practical systems that help businesses understand performance and act on it.
 
-Built with Next.js and React. Deployed-ready for Vercel.
+This repository contains the source code for my portfolio website and its case-study presentation layer.
 
-## Selected work
-- Everdale Retail Analytics
-- Kavora CRM Migration & Data Governance
-- Bloomcrest Revenue Intelligence
-- Brightwatt Operations Automation
-- WeatherIntel
-- Stock Performance & Risk Monitoring
+## Website sections
 
-## Stack
-Next.js · React · TypeScript · SQL · Python · PostgreSQL · Power BI · Excel · Power Query · Automation
+- Home
+- Selected Work
+- Detailed Case Studies
+- About
+- Experience
+- Services
+- Contact
 
-## Contact
-- GitHub: https://github.com/oreoluwadaniel
-- LinkedIn: https://www.linkedin.com/in/daniel-olatunji/
-- Medium: https://medium.com/@oreoluwadaniel
-- Email: oluwafikayore@gmail.com
+## Featured case studies
+
+1. Everdale Retail Analytics
+2. Kavora CRM Migration & Data Governance
+3. Bloomcrest Revenue Intelligence & Revenue Operations
+4. WeatherIntel
+5. Stock Performance, Risk & Forecast Monitoring
+6. Brightwatt Operations Automation
+7. Data Analytics & ETL Portfolio
+8. Stratavax Logistics Analytics
+
+## Technical stack
+
+Next.js · React · TypeScript · SQL · Python · PostgreSQL · Power BI · Excel · Power Query · DAX · Workflow Automation
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+For a production build:
+
+```bash
+npm run build
+npm start
+```
+
+## Deployment
+
+The project is structured for deployment on Vercel. No database or environment variables are required by the portfolio site itself.
+
+## Personal assets
+
+The final local portfolio package also contains Daniel's CV PDF and professional photograph. The connected GitHub publishing interface used in this session cannot transfer binary PDF/JPG files directly, so those two binary assets still need to be added through GitHub's file upload UI before the CV download and portrait are fully live.
