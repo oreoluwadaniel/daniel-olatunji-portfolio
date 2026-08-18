@@ -17,7 +17,6 @@ export default function Footer() {
           <Link href="/contact">Contact</Link>
           <a href="https://www.linkedin.com/in/daniel-olatunji/" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://github.com/oreoluwadaniel" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://medium.com/@oluwafikayore" target="_blank" rel="noreferrer">Medium</a>
         </div>
       </div>
     </footer>
