@@ -1,0 +1,79 @@
+import Link from "next/link";
+
+const skills = [
+  ["Analytics & Statistics","SQL, Python, R, hypothesis testing, linear and logistic regression"],
+  ["Business Intelligence","Power BI, DAX, Power Query, Excel, Tableau, Looker Studio, executive dashboard design, KPI reporting"],
+  ["Data Management","ETL, relational data modelling, dimensional modelling, data validation, data quality, QA testing, PostgreSQL, MySQL, Git/GitHub"],
+  ["Modern Data Platforms","Microsoft Fabric, Azure Data Factory, semantic models"],
+  ["Business Analysis","KPI definition, business process mapping, requirements analysis, analytical reporting"]
+];
+
+export default function AboutPage() {
+  return <main>
+    <section className="section">
+      <div className="container two-col">
+        <div>
+          <div className="eyebrow">About Daniel</div>
+          <h1>Data analysis built around business questions.</h1>
+        </div>
+        <div>
+          <p className="lead">I am a Data Analyst with 4+ years of experience using data to investigate revenue, customer, risk, and operational problems.</p>
+          <p>I build ETL pipelines, relational data models and executive dashboards, and I have worked with datasets containing millions of records. My work covers business intelligence, statistical analysis, customer segmentation, hypothesis testing and forecasting.</p>
+          <p>I focus on finding the factors driving results, detecting problems and presenting evidence that helps teams make better business decisions.</p>
+          <div className="actions">
+            <a className="btn btn-primary" href="/cv/Daniel-Olatunji-CV.pdf" download>Download CV</a>
+            <Link className="btn btn-secondary" href="/work">View My Work</Link>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="section-tight">
+      <div className="container">
+        <div className="eyebrow">Professional experience</div>
+        <h2>Where I have applied the work.</h2>
+        <div className="three-grid">
+          <div className="card"><h3>Data Analyst / BI Consultant</h3><p className="small">Freelance / Consulting · Jun 2025 – Present</p><p>Combined customer, sales and operational records across five businesses, improved customer management systems, built automated reports and dashboards, and documented reporting processes. Reduced manual data entry by 50% and supported changes that contributed to a 25% improvement in customer retention.</p></div>
+          <div className="card"><h3>Data Analyst, Risk & Security Intelligence</h3><p className="small">Risk Control Services · Feb 2025 – May 2025</p><p>Combined and cleaned internal and SharePoint data, built management dashboards and examined 300,000+ security records for unusual activity and recurring risk patterns. Reduced data errors by 40%, processing time by 30%, and project turnaround time by 35%.</p></div>
+          <div className="card"><h3>Data Analyst</h3><p className="small">Instinct Hub · 2023 – 2024</p><p>Analysed customer activity and account history, built automated reports, delivered six analytics workshops for 8+ analysts and mentored eight junior analysts on SQL, Python and data visualisation.</p></div>
+          <div className="card"><h3>Business/Data Analyst</h3><p className="small">Adullam Technologies Limited · 2022 – 2023</p><p>Reviewed stock and sales records, helped reduce overstock by 15%, analysed customer buying behaviour to support targeted marketing, and documented sales, inventory and customer processes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="container">
+        <div className="eyebrow">Core skills</div>
+        <h2>What I work with.</h2>
+        <div className="three-grid">
+          {skills.map(([a,b]) => <div className="card" key={a}><h3>{a}</h3><p>{b}</p></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section-tight">
+      <div className="container two-col">
+        <div><div className="eyebrow">Education</div><h2>Statistics foundation.</h2></div>
+        <div className="card">
+          <h3>B.Sc. in Statistics</h3>
+          <p>University of Lagos, Nigeria · 2021</p>
+        </div>
+      </div>
+    </section>
+
+    <section className="section-tight">
+      <div className="container">
+        <div className="eyebrow">Certifications</div>
+        <h2>Professional learning.</h2>
+        <div className="four-grid">
+          {[
+            ["IBM Data Science Professional Certificate","2024"],
+            ["Scrum Business Analysis Certification","2024"],
+            ["Google Data Analytics Professional Certificate","2023"],
+            ["Forage Data Analytics Consulting Program","2023"]
+          ].map(([a,b]) => <div className="card" key={a}><h3>{a}</h3><p>{b}</p></div>)}
+        </div>
+      </div>
+    </section>
+  </main>;
+}
