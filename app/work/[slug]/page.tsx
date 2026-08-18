@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
 
+const siteUrl = "https://daniel-olatunji-portfolio.vercel.app";
+
 export function generateStaticParams() { return projects.map(p => ({ slug: p.slug })); }
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const p = projects.find(x => x.slug === slug);
+  if (!p) return { title: "Project not found" };
+  return {
+    title: p.title,
+    description: p.short,
+    alternates: { canonical: `${siteUrl}/work/${p.slug}` },
+    openGraph: { title: `${p.title} | Daniel Olatunji`, description: p.short, url: `${siteUrl}/work/${p.slug}`, images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: p.title }] }
+  };
+}
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -19,10 +34,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <section className="case-section"><div className="container copy"><div className="eyebrow">1 · Business context</div><h2>Why this problem matters</h2><p>{p.context}</p></div></section>
     <section className="case-section"><div className="container copy"><div className="eyebrow">2 · Problem</div><h2>What needed fixing?</h2><p>{p.problem}</p></div></section>
     <section className="case-section"><div className="container copy"><div className="eyebrow">3 · Objective</div><h2>What the analysis needed to achieve</h2><p>{p.objective}</p></div></section>
-
     <section className="case-section"><div className="container"><div className="eyebrow">4 · Business questions</div><h2>Questions the analysis had to answer</h2><ul className="case-list">{p.questions.map(q=><li key={q}>{q}</li>)}</ul></div></section>
     <section className="case-section"><div className="container"><div className="eyebrow">5 · Data</div><h2>What I worked with</h2><ul className="case-list">{p.data.map(x=><li key={x}>{x}</li>)}</ul></div></section>
-
     <section className="case-section"><div className="container"><div className="eyebrow">6 · Analysis method</div><h2>How I worked through the problem</h2><ol className="case-list">{p.work.map(x=><li key={x}>{x}</li>)}</ol><div className="workflow">{p.workflow.map(x=><div key={x}>{x}</div>)}</div></div></section>
 
     <section className="case-section"><div className="container"><div className="eyebrow">7 · Checks and decisions</div><h2>How I kept the analysis from becoming guesswork</h2><div className="finding-grid">
