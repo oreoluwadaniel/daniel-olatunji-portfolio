@@ -28,7 +28,7 @@ export const projects: Project[] = [
     category: "Revenue & Customer Analytics",
     short: "Sales, customers, deals and payments brought into one view. 6,129 customers had gone quiet and the monthly report had not noticed.",
     status: "Synthetic data · Fictional business",
-    cover: "/project-covers/bloomcrest.svg",
+    cover: "/project-covers/bloomecrest.jpg",
     github: "https://github.com/oreoluwadaniel/bloomcrest-revenue-intelligence",
     scale: "18,000 customers · 360 wholesale deals · NGN 7.353B revenue · Jul 2024 to Jul 2026",
     tools: [
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     category: "Inventory & Working Capital",
     short: "A bulk purchase booked as a ₦9m saving actually cost ₦8.4m once somebody counted what it costs to store stock.",
     status: "Synthetic data · Fictional business",
-    cover: "/project-covers/crestline.svg",
+    cover: "/project-covers/invenotry.jpg",
     github: "https://github.com/oreoluwadaniel/crestline-inventory-decision-support",
     scale: "5 warehouses · 7 conditions modelled · ₦412.4M stock on hand · position as at June 2026",
     tools: [
@@ -105,7 +105,7 @@ export const projects: Project[] = [
       "Scenario Modelling",
       "Forecasting",
     ],
-    context: "Crestline runs five warehouses in Nigeria. Every month a buyer decides how much stock to order, and that decision is made against a report describing what already happened, with no way to test what a change in demand, supplier delays or the exchange rate would do to the cash position.",
+    context: "Crestline runs five warehouses. Every month a buyer decides how much stock to order, and that decision is made against a report describing what already happened, with no way to test what a change in demand, supplier delays or the exchange rate would do to the cash position.",
     problem: "Order too much and cash sits on a shelf. Order too little and sales walk away. Buyers settle that argument on unit price, because unit price is the only number in front of them, and it is the number that misleads most often.",
     objective: "Build a model where a buyer changes one condition, then sees straight away what happens to stock value, service to customers, cost and cash, measured against a normal month.",
     questions: [
@@ -115,7 +115,7 @@ export const projects: Project[] = [
       "Is a bulk discount still worth taking once the extra stock has to be stored and paid for?",
     ],
     data: [
-      "Five warehouses, a fictional Nigerian distributor",
+      "Five warehouses, a fictional distributor",
       "Sales, purchase orders, stock transfers, returns, stock counts, storage and transport costs",
       "Position as at June 2026",
       "Seven conditions modelled: normal month, supplier delays, demand spike, demand fall, cost rise, currency pressure, bulk discount",
@@ -143,7 +143,7 @@ export const projects: Project[] = [
       "Holding stock costs 35% a year here: 28% borrowing cost, 1% insurance, 6% storage, spoilage and theft. The previous estimate of 20% to 25% left the borrowing cost out entirely, which is exactly why the bulk deal looked like a win.",
       "₦28,660,219 of stock, 6.9% of the ₦412,412,369 held, has more than six months of cover behind it. That is the single largest pot of cash available to release, and releasing it costs nothing.",
       "Orders arriving complete and on time run at 70.5% against a 90% target, while item availability is 97.5% against a 95% target. The business is reporting the number that looks good. Customers experience the other one.",
-      "Lagos Main is 77% full, the fullest site in the network. Any decision to buy more has to answer where it goes before it answers what it costs.",
+      "The main warehouse is 77% full, the fullest site in the network. Any decision to buy more has to answer where it goes before it answers what it costs.",
       "Stock turns over 12.4 times a year and sits for 29 days on average. Stock value is 1.2% above target after rising 6.6% in a month, so the position is drifting the wrong way.",
     ],
     meaning: "The bulk deal is the case that pays for the whole model. The ₦9,000,000 saving was real and it was reported accurately. It was still the wrong decision, because the cost of holding the stock was never in the room when the decision was made. A discount is only a saving if you are not paying to store it.",
@@ -152,7 +152,7 @@ export const projects: Project[] = [
       "Get finance to sign off the 35% holding cost, because it changes which purchases pass and which do not.",
       "Release the ₦28.66 million sitting in six months or more of cover first. It is the largest recoverable amount and it needs no new spending.",
       "Fix delivery reliability at 70.5% before anyone celebrates 97.5% availability. Customers only see the first number.",
-      "Move stock out of Lagos Main at 77% full before the next demand increase turns it into a constraint.",
+      "Move stock out of the main warehouse at 77% full before the next demand increase turns it into a constraint.",
     ],
     judgement: "I recalculated the cost of holding stock before running a single scenario. The old estimate left out the cost of borrowing the money, and at 28% that omission is the entire difference between a ₦9 million saving and an ₦8.4 million loss. Getting one assumption right mattered more than every scenario built on top of it.",
   },
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     category: "Experimentation & Product Analytics",
     short: "Two product tests taken to a release-or-hold decision. The winner came with a catch worth more than the win.",
     status: "Synthetic test data · Two linked cases",
-    cover: "/project-covers/abtesting.svg",
+    cover: "/project-covers/a_b_analysis.png",
     github: "https://github.com/oreoluwadaniel/ab-testing-case-studies",
     scale: "8,200 website visitors over 42 days · 7,500 new app users",
     tools: [
@@ -229,7 +229,7 @@ export const projects: Project[] = [
     category: "Forecasting & Data Pipelines",
     short: "371,482 days of weather readings checked for quality, then four forecasting methods raced. The complicated one won by 0.11°C.",
     status: "Public source data · Real weather records",
-    cover: "/project-covers/weatherintel.svg",
+    cover: "/project-covers/weather_analytics.jpg",
     github: "https://github.com/oreoluwadaniel/weatherintel-global-weather-analytics",
     scale: "8 weather stations · 4 continents · 371,482 days of readings · records back to 1763",
     tools: [
@@ -295,7 +295,7 @@ export const projects: Project[] = [
     category: "Data Quality & Reporting",
     short: "Four reporting systems where nearly a third of customer records failed the checks. They were sent for review, not quietly deleted.",
     status: "Synthetic data · Four linked cases",
-    cover: "/project-covers/etl.svg",
+    cover: "/project-covers/data_cleaning.jpg",
     github: "https://github.com/oreoluwadaniel/data-analytics-etl-portfolio",
     scale: "5,130 customer records · 1,001 employees · 3,400 products · 75,000 sales",
     tools: [
