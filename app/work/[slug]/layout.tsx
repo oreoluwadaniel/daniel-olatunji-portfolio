@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { projects } from "@/lib/projects";
+import { allProjects } from "@/lib/portfolio-data";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = allProjects.find((p) => p.slug === slug);
   if (!project) return { title: "Project | Daniel Olatunji" };
   return {
     title: `${project.title} | Daniel Olatunji`,
