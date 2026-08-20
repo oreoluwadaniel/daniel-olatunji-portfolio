@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    { "source": "/work/everdale-retail-analytics", "destination": "/work", "permanent": true },
+    { "source": "/work/kavora-crm-migration", "destination": "/work", "permanent": true },
+    { "source": "/work/stock-risk-monitoring", "destination": "/work", "permanent": true },
+    { "source": "/work/stratavax-logistics", "destination": "/work", "permanent": true },
+    { "source": "/work/brightwatt-operations", "destination": "/work", "permanent": true },
+    { "source": "/work/credit-risk-banking-portfolio", "destination": "/work", "permanent": true },
+    { "source": "/work/saas-revenue-product-billing", "destination": "/work", "permanent": true },
+    { "source": "/work/insurance-risk-pricing", "destination": "/work", "permanent": true },
+    { "source": "/work/globalcart-customer-intelligence", "destination": "/work", "permanent": true },
+    { "source": "/work/b2b-saas-customer-revenue-analytics", "destination": "/work", "permanent": true }
+  ]
+}
