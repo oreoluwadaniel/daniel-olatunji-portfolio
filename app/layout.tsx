@@ -8,13 +8,13 @@ const siteUrl = "https://daniel-olatunji-portfolio.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "Daniel Olatunji | Data Analyst & BI Analyst, Lagos", template: "%s | Daniel Olatunji" },
-  description: "Data analyst and BI analyst in Lagos. Four years across revenue, customer, risk and operational analysis. Fifteen case studies with evidence, methods and limits stated clearly.",
+  description: "Data analyst and BI analyst in Lagos. Four years across revenue, customer, stock and operational analysis. Five case studies with the numbers and the decisions they support.",
   keywords: ["data analyst", "business intelligence analyst", "Power BI analyst", "SQL analyst", "data quality", "Lagos", "Nigeria", "remote data analyst"],
   authors: [{ name: "Daniel Olatunji", url: siteUrl }],
   creator: "Daniel Olatunji",
   alternates: { canonical: siteUrl },
-  openGraph: { title: "Daniel Olatunji | Data Analyst & BI Analyst", description: "Four years on revenue, customer, risk and operational analysis. Fifteen case studies with evidence, methods and limits stated clearly.", url: siteUrl, siteName: "Daniel Olatunji", locale: "en_GB", type: "website", images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Daniel Olatunji, data analyst and business intelligence analyst" }] },
-  twitter: { card: "summary_large_image", title: "Daniel Olatunji | Data Analyst & BI Analyst", description: "Fifteen case studies covering revenue, customer, credit risk, insurance, experimentation, forecasting, data quality and business intelligence.", images: ["/og-image.png"] },
+  openGraph: { title: "Daniel Olatunji | Data Analyst & BI Analyst", description: "Four years on revenue, customer, stock and operational analysis. Five case studies with the numbers and the decisions they support.", url: siteUrl, siteName: "Daniel Olatunji", locale: "en_GB", type: "website", images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Daniel Olatunji, data analyst and business intelligence analyst" }] },
+  twitter: { card: "summary_large_image", title: "Daniel Olatunji | Data Analyst & BI Analyst", description: "Five case studies covering revenue, inventory, product experimentation, forecasting and data quality.", images: ["/og-image.png"] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
 };
