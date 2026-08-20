@@ -1,32 +1,118 @@
 import { projects, type Project } from "@/lib/projects";
 
-export type PortfolioProject = Project & { judgement: string };
+export type PortfolioProject = Project;
 
-const judgementCalls: Record<string, string> = {
-  "everdale-retail-analytics": "The grain mismatch was the whole problem. Nothing downstream could be trusted until the order and order-line facts were separated, so I fixed that before writing a single measure.",
-  "bloomcrest-revenue-intelligence": "Joining CRM to transactional data is where these builds usually break because account keys do not match cleanly. I used a normalised company identity with an exceptions table instead of assuming a shared ID.",
-  weatherintel: "I published the baselines even though they made the model look less impressive. A forecast only earns its place when it beats a simple benchmark on held-out data.",
-  "data-analytics-etl": "I kept exception records visible. A blank manager field, an invalid stock record or a failed CRM check is information about the business, not a reason to silently delete a row.",
-  "kavora-crm-migration": "The hard part was choosing where to stop trusting the matching logic. Everything below the confidence threshold became an exception for human review on purpose.",
-  "stock-risk-monitoring": "I did not score the forecast on the data it was fitted to. Walk-forward testing is slower, but it is the only version that tells me whether the model adds anything beyond a baseline.",
-  "stratavax-logistics": "Two SQL outputs looked believable but did not reconcile to source records. I treated that as a failed analysis until the discrepancy was explained.",
-  "brightwatt-operations": "The process problem was sequencing, not software. Scheduling before checking stock would have survived any tool purchase, so I fixed the handoff rule first.",
-};
-
-const findingOverrides: Record<string, string[]> = {
-  "everdale-retail-analytics": ["Revenue and margin move in opposite directions at the peaks. The months with the highest sales also carry the lowest gross margin because the volume is bought with discount.", "Channel comparison changed once the grain was fixed. Reporting at the wrong grain was overstating one channel.", "Promotional and base revenue behave differently enough that one revenue trend hides the split.", "Seasonality repeats across the three years, which supports short-horizon planning. I would not extend the forecast beyond two quarters without re-testing it."],
-  "bloomcrest-revenue-intelligence": ["Booked revenue and collected revenue diverge steadily. The widening gap points to a collections problem, not a one-off invoicing delay.", "Pipeline value alone is a weak signal. Stage movement carries more information about whether a deal is progressing.", "Customer inactivity appears in purchase gaps before it appears in total revenue, giving retention work an earlier signal.", "The channel bringing the most customers is not automatically the channel producing the most revenue per customer."],
-  weatherintel: ["XGBoost recorded the lowest error at 2.22°C MAE and 2.80°C RMSE, ahead of the alternatives tested.", "The improvement over a seasonal-naive baseline is real but modest. That matters because model complexity has a cost.", "371,482 station-days survived the quality checks. Excluded observations remain traceable instead of disappearing.", "Station histories differ, so cross-station comparisons need coverage and history to be considered alongside the metric."],
-  "data-analytics-etl": ["30.3% of 5,130 CRM records failed the defined quality checks and were routed for review.", "301 employees had no performance review recorded, and 464 had no recorded manager.", "Inventory analysis identified N6.49B of replenishment exposure; that is exposure to investigate, not money saved.", "74,598 of 75,000 sales source transactions were accepted into the reporting layer after validation."],
-  "kavora-crm-migration": ["4,755 raw rows were processed into 389 companies, 964 contacts and 380 deals.", "Uncertain matches were kept as exceptions instead of being merged automatically.", "Source and final counts were reconciled before the CRM-ready outputs were treated as complete."],
-  "stock-risk-monitoring": ["The ten holdings form correlation clusters, so the count of holdings overstates the diversification benefit.", "Return, volatility and drawdown rank holdings differently; return alone is not a risk measure.", "Walk-forward testing gives a stricter view of ARIMA than in-sample fitted values.", "Forecast complexity has to clear the baseline before it earns a place in a monitoring process."],
-  "stratavax-logistics": ["Delay risk and cost pressure sit on different routes. The slowest routes are not automatically the least profitable.", "Fuel absorbs enough delivery revenue on the worst routes to make some on-time deliveries unattractive economically.", "A per-delivery risk view creates an earlier intervention list than a post-hoc SLA report.", "Source reconciliation caught plausible SQL outputs that did not agree with the underlying records."],
-  "brightwatt-operations": ["The stall points cluster at handoffs between people, not inside the individual stages.", "Scheduling before checking stock creates a preventable commitment problem.", "An unowned stage stays invisible until a customer or manager asks about it.", "Rule-based follow-up catches open work without relying on someone remembering to check it."],
-};
-
-const extraProjects: PortfolioProject[] = [
-  {slug:"globalcart-customer-intelligence",title:"GlobalCart Enterprise Customer Intelligence & RFM Analytics",category:"Customer Analytics · Segmentation · Business Intelligence",short:"Segmenting 100,000 customers to show which groups are high-value, loyal, declining or inactive.",status:"CV project · Repository not published",cover:"/project-covers/globalcart.svg",github:"",scale:"100,000 customers · 500,000 orders · 1.5M order items",tools:["Power BI","RFM Analysis","Customer Segmentation","SQL"],context:"GlobalCart needed a clearer view of customer value and activity. Total customer count could not show which customers were worth retaining or which groups were becoming inactive.",problem:"The analysis needed to separate high-value, loyal, declining and inactive customers using purchase behaviour instead of a single customer count.",objective:"Measure recency, purchase frequency, spending and repeat-purchase behaviour, then turn those measures into customer segments that can guide retention work.",questions:["Which customers are high-value?","Which customers remain loyal?","Which customers are declining?","Which customers are inactive?"],data:["100,000 customers","500,000 orders","1.5 million order items"],work:["Analysed customer, order and order-item data.","Measured recency, frequency, spending and repeat purchase behaviour.","Applied RFM segmentation.","Examined revenue by customer group.","Built a two-page Power BI dashboard."],workflow:["Customer data","Order history","RFM measures","Customer segments","Power BI"],findings:["The analysis separated customers into high-value, loyal, declining and inactive groups.","Recency, frequency and spending expose different behaviours, so one customer-value measure would hide changes in activity.","The segments give retention work a practical starting point instead of treating all 100,000 customers the same."],meaning:"The business can focus retention work on customers showing value or declining activity instead of applying the same action to the whole customer base.",recommendations:["Prioritise high-value customers for retention work.","Watch declining groups for changes in purchase frequency.","Separate loyal customers from lower-value frequent purchasers.","Use the dashboard as the starting point for targeted retention analysis."],output:"A two-page Power BI customer-intelligence dashboard built around RFM segmentation and customer value.",limitations:["The detailed evidence is documented in the CV; a public repository is not currently linked.","RFM segments describe observed behaviour but do not establish why a customer became inactive."],judgement:"The useful decision was to segment on recency, frequency and spending instead of treating total customer count as the main measure. The CV does not provide segment sizes, so I have not invented them."},
-  {slug:"b2b-saas-customer-revenue-analytics",title:"B2B SaaS Customer & Revenue Analytics Platform",category:"SaaS Analytics · Revenue · Retention",short:"Using 2.58 million records across 10 tables to examine revenue, retention, churn, cohorts and customer behaviour.",status:"CV project · Repository not published",cover:"/project-covers/b2b-saas.svg",github:"",scale:"2.58M records · 10 tables · 105 SQL queries · 50 statistical analyses",tools:["SQL","Statistical Analysis","Customer Cohorts","Revenue Analytics"],context:"A B2B SaaS business needs to understand more than total revenue. The analysis examined how revenue changes over time, how customers behave after acquisition, where churn appears and how cohorts differ.",problem:"Revenue growth can hide weakening customer behaviour, so the analysis needed to connect revenue, retention, churn and cohort performance.",objective:"Use SQL and statistical analysis to measure revenue trends, test business assumptions, identify churn patterns and compare customer cohorts.",questions:["How is revenue changing?","What is happening to retention and churn?","How do cohorts differ?","Which customer behaviour changes matter for revenue?"],data:["2.58 million records","10 tables","Customer and revenue data"],work:["Developed 105 SQL queries.","Performed 50 statistical analyses.","Measured revenue trends.","Compared customer cohorts.","Examined retention, churn and changes in customer behaviour."],workflow:["10 tables","SQL analysis","Revenue measures","Cohort analysis","Statistical tests"],findings:["Revenue, retention and churn need to be read together because a growing revenue line can hide weakening customer behaviour.","Cohort comparison makes behaviour changes visible across groups that entered at different times.","The project used 105 SQL queries and 50 statistical analyses to test revenue and customer assumptions from multiple angles."],meaning:"The analysis gives management a clearer view of whether revenue growth is supported by healthy customer behaviour or offset by retention and churn problems.",recommendations:["Monitor retention and churn alongside revenue growth.","Compare cohorts before assuming customers behave the same way.","Use statistical tests to challenge business assumptions.","Track behaviour changes as an early signal for revenue risk."],output:"A large-scale SaaS customer and revenue analysis using 2.58 million records, 105 SQL queries and 50 statistical analyses.",limitations:["The detailed evidence is documented in the CV; a public repository is not currently linked.","The CV does not provide individual churn rates or cohort percentages, so none are invented here."],judgement:"The judgement in a large SaaS analysis is to test revenue claims from more than one angle. I used SQL for repeatable measures and statistical analysis for assumptions and cohort comparisons."}
+// Two projects documented on the CV. The work is real; the repositories are not public,
+// so every figure here is one the CV states and nothing is inferred beyond it.
+const cvProjects: PortfolioProject[] = [
+  {
+    slug: "globalcart-customer-intelligence",
+    title: "GlobalCart Enterprise Customer Intelligence & RFM Analytics",
+    category: "Customer Analytics · Segmentation · Business Intelligence",
+    short: "100,000 customers scored on recency, frequency and spend, because a customer count cannot tell you who is leaving.",
+    status: "CV project · Repository not published",
+    cover: "/project-covers/globalcart.svg",
+    github: "",
+    scale: "100,000 customers · 500,000 orders · 1.5M order items",
+    tools: ["Power BI", "SQL", "RFM Analysis", "Customer Segmentation"],
+    context:
+      "GlobalCart knew how many customers it had. That number stayed reassuring while the composition underneath it changed, because a customer who has not bought in nine months is still a customer in a headcount.",
+    problem:
+      "Retention work was being applied evenly across 100,000 customers, which spends the same effort on someone who buys monthly and someone who has already gone.",
+    objective:
+      "Score every customer on recency, purchase frequency and spend, then split the base into groups that justify different actions.",
+    questions: [
+      "Which customers carry the most value?",
+      "Which are still buying at the same rate?",
+      "Which have slowed down, and by how much?",
+      "Which have stopped, and when did that start?",
+    ],
+    data: ["100,000 customers", "500,000 orders", "1.5 million order items"],
+    work: [
+      "Joined customer, order and order-item data to one purchase history per customer.",
+      "Measured recency, frequency, monetary value and repeat-purchase behaviour.",
+      "Applied RFM scoring and cut the base into segments.",
+      "Measured revenue concentration across the segments.",
+      "Built a two-page Power BI dashboard around the segments rather than around the totals.",
+    ],
+    workflow: ["Customer data", "Order history", "RFM scoring", "Segments", "Power BI"],
+    findings: [
+      "The base separates into high-value, loyal, declining and inactive groups, and the four need different treatment.",
+      "Recency, frequency and spend disagree with each other on the same customer often enough that any single value measure hides a change in behaviour.",
+      "Segmentation gives retention work a starting point that is not the whole 100,000.",
+      "The CV does not publish segment sizes or revenue shares, so none are stated here.",
+    ],
+    meaning:
+      "The dashboard's job is to stop the business treating 100,000 people as one audience. That is the entire value, and it does not require a predictive model to deliver it.",
+    recommendations: [
+      "Work the declining group first, because they are still reachable and the drop is measurable.",
+      "Track purchase frequency month on month as the early signal, ahead of revenue.",
+      "Separate loyal high-spenders from loyal low-spenders, since the retention action differs.",
+      "Treat the segments as an entry point for targeted analysis, not as the finished answer.",
+    ],
+    output: "A two-page Power BI customer intelligence dashboard built on RFM segmentation across 100,000 customers.",
+    limitations: [
+      "The detailed evidence is documented on the CV. A public repository is not linked.",
+      "RFM describes what a customer did. It does not explain why they stopped.",
+      "Segment sizes are not published, so this page quotes none.",
+    ],
+    judgement:
+      "I scored on recency, frequency and spend rather than lifetime revenue. Lifetime revenue keeps a customer looking valuable for years after they stop buying, which is the failure mode the whole exercise exists to avoid.",
+  },
+  {
+    slug: "b2b-saas-customer-revenue-analytics",
+    title: "B2B SaaS Customer & Revenue Analytics Platform",
+    category: "SaaS Analytics · Revenue · Retention",
+    short: "2.58 million records, 105 SQL queries and 50 statistical tests aimed at one question: is the revenue growth real?",
+    status: "CV project · Repository not published",
+    cover: "/project-covers/b2b-saas.svg",
+    github: "",
+    scale: "2.58M records · 10 tables · 105 SQL queries · 50 statistical analyses",
+    tools: ["SQL", "Statistical Analysis", "Cohort Analysis", "Revenue Analytics"],
+    context:
+      "A B2B SaaS business with 10 tables of history and a revenue line that was going up. The question was whether the customer behaviour underneath it supported the line or was quietly working against it.",
+    problem:
+      "Revenue growth is a lagging measure. It can keep rising through a period of worsening retention, because the customers leaving were acquired before the ones arriving.",
+    objective:
+      "Measure revenue, retention, churn and cohort behaviour on the same foundation, and test the assumptions the business was making rather than reporting around them.",
+    questions: [
+      "How is revenue changing, and which part of it is new against expansion?",
+      "What is happening to retention and churn underneath that?",
+      "Do cohorts acquired at different times behave differently?",
+      "Which behaviour changes arrive before the revenue changes?",
+    ],
+    data: ["2.58 million records", "10 tables", "Customer, subscription and revenue history"],
+    work: [
+      "Built 105 SQL queries as a repeatable measurement layer rather than as one-off extracts.",
+      "Ran 50 statistical analyses to test business assumptions instead of describing them.",
+      "Measured revenue movement over time.",
+      "Compared cohorts by acquisition period.",
+      "Tracked retention, churn and changes in customer behaviour against the revenue line.",
+    ],
+    workflow: ["10 tables", "SQL measurement layer", "Revenue movement", "Cohort comparison", "Statistical tests"],
+    findings: [
+      "Revenue, retention and churn have to be read together, because a rising revenue line can run for several periods on top of weakening behaviour.",
+      "Cohort comparison exposes behaviour differences that a blended average removes entirely.",
+      "Testing assumptions statistically changed conclusions that description alone had supported.",
+      "The CV does not publish churn rates or cohort percentages, so none are stated here.",
+    ],
+    meaning:
+      "The point of 105 queries and 50 tests was not volume. It was that every claim about the revenue had to survive being checked from a second direction before it went into a report.",
+    recommendations: [
+      "Report retention and churn on the same page as revenue growth, permanently.",
+      "Compare cohorts before assuming customers acquired in different periods behave alike.",
+      "Test the assumptions the business states out loud. Some of them do not survive it.",
+      "Use behaviour change as the early warning, since it moves before revenue does.",
+    ],
+    output:
+      "A SQL and statistical analysis layer over 2.58 million records covering revenue movement, retention, churn and cohort behaviour.",
+    limitations: [
+      "The detailed evidence is documented on the CV. A public repository is not linked.",
+      "Individual churn rates and cohort percentages are not published, and none are invented here.",
+    ],
+    judgement:
+      "I split the work between SQL for measures that had to be repeatable and statistical testing for claims that had to be challenged. Reporting a difference and establishing that the difference is real are two different jobs.",
+  },
 ];
 
-export const allProjects: PortfolioProject[] = projects.map((p) => ({...p, judgement: judgementCalls[p.slug] ?? "I tied the method to the business question and kept the evidence boundary explicit.", findings: findingOverrides[p.slug] ?? p.findings})).concat(extraProjects);
+export const allProjects: PortfolioProject[] = [...projects, ...cvProjects];
