@@ -9,7 +9,7 @@ export default function OpengraphImage() {
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#0a1424", padding: "72px 80px", fontFamily: "sans-serif" }}>
-        <div style={{ display: "flex", color: "#caa85e", fontSize: 26, letterSpacing: 4, fontWeight: 700 }}>DATA ANALYST · BUSINESS INTELLIGENCE · LAGOS</div>
+        <div style={{ display: "flex", color: "#caa85e", fontSize: 26, letterSpacing: 4, fontWeight: 700 }}>DATA ANALYST · BUSINESS INTELLIGENCE</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", color: "#f3f1ea", fontSize: 82, fontWeight: 700 }}>Daniel Olatunji</div>
           <div style={{ display: "flex", color: "#9eabbc", fontSize: 36, marginTop: 18 }}>I find out why the numbers moved, and what to do about it.</div>
