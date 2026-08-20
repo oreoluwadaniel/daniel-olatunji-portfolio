@@ -20,7 +20,7 @@ const steps: [string, string, string][] = [
 export default function Home() {
   return <main>
     <section className="hero"><div className="container hero-grid"><div className="hero-copy">
-      <div className="eyebrow">Data analyst · Business intelligence · Lagos, Nigeria</div>
+      <div className="eyebrow">Data analyst · Business intelligence</div>
       <h1>Daniel Olatunji</h1>
       <p className="hero-role">I find out why the numbers moved, and what to do about it.</p>
       <p>Four years on revenue, customers, stock, risk and the data problems sitting underneath all of them. Five case studies, each one with the numbers and the decision they point to.</p>
