@@ -9,7 +9,7 @@ const services = [
   ["SQL, ETL & Data Preparation", "Prepare reliable analysis-ready datasets from operational and relational data sources."]
 ];
 
-export const metadata = { title: "Services | Daniel Olatunji", description: "Data analysis, business intelligence, reporting, dashboard development, data quality and operational analytics services.", alternates: { canonical: "https://daniel-olatunji-portfolio.vercel.app/services" }, openGraph: { title: "Services | Daniel Olatunji", description: "Data analysis, business intelligence, reporting and data preparation services.", url: "https://daniel-olatunji-portfolio.vercel.app/services", images: ["/og-image.svg"] } };
+export const metadata = { title: "Services | Daniel Olatunji", description: "Data analysis, business intelligence, reporting, dashboard development, data quality and operational analytics services.", alternates: { canonical: "https://daniel-olatunji-portfolio.vercel.app/services" }, openGraph: { title: "Services | Daniel Olatunji", description: "Data analysis, business intelligence, reporting and data preparation services.", url: "https://daniel-olatunji-portfolio.vercel.app/services" } };
 
 export default function ServicesPage() {
   return <main><section className="section"><div className="container">
