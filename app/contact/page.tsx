@@ -1,6 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 
-export const metadata = { title: "Contact | Daniel Olatunji", description: "Contact Daniel Olatunji about data analysis, business intelligence, reporting or analytics work.", alternates: { canonical: "https://daniel-olatunji-portfolio.vercel.app/contact" }, openGraph: { title: "Contact | Daniel Olatunji", description: "Contact Daniel Olatunji about data analysis, business intelligence and reporting work.", url: "https://daniel-olatunji-portfolio.vercel.app/contact", images: ["/og-image.svg"] } };
+export const metadata = { title: "Contact | Daniel Olatunji", description: "Contact Daniel Olatunji about data analysis, business intelligence, reporting or analytics work.", alternates: { canonical: "https://daniel-olatunji-portfolio.vercel.app/contact" }, openGraph: { title: "Contact | Daniel Olatunji", description: "Contact Daniel Olatunji about data analysis, business intelligence and reporting work.", url: "https://daniel-olatunji-portfolio.vercel.app/contact" } };
 
 export default function ContactPage() {
   return <main><section className="section"><div className="container contact-box">
