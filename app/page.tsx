@@ -23,7 +23,7 @@ export default function Home() {
       <div className="eyebrow">Data analyst · Business intelligence</div>
       <h1>Daniel Olatunji</h1>
       <p className="hero-role">I find out why the numbers changed, and what to do about it.</p>
-      <p>Four years across revenue, customers, risk and reporting. Five case studies, each built around a business question, the numbers behind it and the decision they support.</p>
+      <p>I turn business numbers into a clear view of what is happening, where attention is needed, and what should happen next.</p>
       <div className="actions"><Link className="btn btn-primary" href="/work">See the work</Link><a className="btn btn-secondary" href="/cv/Daniel_Olatunji_CV.pdf" download>Download CV</a><Link className="btn btn-secondary" href="/contact">Get in touch</Link></div>
     </div><div className="portrait"><img src="/images/daniel-olatunji.svg" alt="Daniel Olatunji" width="900" height="1100" fetchPriority="high" decoding="async" /></div></div></section>
 
