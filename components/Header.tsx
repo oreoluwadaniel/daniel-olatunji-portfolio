@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const links = [["Work", "/work"], ["About", "/about"], ["Experience", "/experience"], ["Services", "/services"]];
+  const links = [["Work", "/work"], ["About", "/about"], ["Services", "/services"]];
   return (
     <header className="nav">
       <div className="container nav-inner">
