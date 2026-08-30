@@ -22,8 +22,10 @@ export default function Home() {
     <section className="hero"><div className="container hero-grid"><div className="hero-copy">
       <div className="eyebrow">Data analyst · Business intelligence</div>
       <h1>Daniel Olatunji</h1>
-      <p className="hero-role">I find out why the numbers changed, and what to do about it.</p>
-      <p>I turn business numbers into a clear view of what is happening, where attention is needed, and what should happen next.</p>
+      <p className="hero-role">I help businesses see clearly what their numbers are saying.</p>
+      <p>I analyse revenue, customer and operational performance to show what is changing, where problems or opportunities are emerging, and where attention is needed.</p>
+      <p>My work brings together the records businesses already have and turns them into clear reporting and analysis that people can use to understand performance and make better decisions.</p>
+      <p>I focus on data analysis and business intelligence, with work spanning customer behaviour, data quality, management reporting and the day-to-day activity behind business results. I also work with customer systems and reporting processes when they affect the accuracy of the numbers or the decisions built on them.</p>
       <div className="actions"><Link className="btn btn-primary" href="/work">See the work</Link><a className="btn btn-secondary" href="/cv/Daniel_Olatunji_CV.pdf" download>Download CV</a><Link className="btn btn-secondary" href="/contact">Get in touch</Link></div>
     </div><div className="portrait"><img src="/images/daniel-olatunji.svg" alt="Daniel Olatunji" width="900" height="1100" fetchPriority="high" decoding="async" /></div></div></section>
 
