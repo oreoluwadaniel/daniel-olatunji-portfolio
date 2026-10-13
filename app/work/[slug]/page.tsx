@@ -2,27 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { allProjects } from "@/lib/portfolio-data";
+import { caseStudyEvidence } from "@/lib/case-evidence";
+import EvidenceGallery from "@/components/EvidenceGallery";
 
 const siteUrl = "https://daniel-olatunji-portfolio.vercel.app";
-
-const evidenceImages: Record<string, { src: string; alt: string }> = {
-  weatherintel: {
-    src: "https://raw.githubusercontent.com/oreoluwadaniel/weatherintel-global-weather-analytics/main/weather%20intel%20dash.png",
-    alt: "WeatherIntel reporting dashboard from the project repository",
-  },
-  "bloomcrest-revenue-intelligence": {
-    src: "https://raw.githubusercontent.com/oreoluwadaniel/bloomcrest-revenue-intelligence/main/diagrams/bloomcrest_system_architecture_layers.png",
-    alt: "How the Bloomcrest data sources connect, from the project repository",
-  },
-  "ab-testing-experimentation": {
-    src: "https://raw.githubusercontent.com/oreoluwadaniel/ab-testing-case-studies/main/smart-onboarding/images/04_adoption_story.png",
-    alt: "Setup assistant adoption and retention chart from the project repository",
-  },
-  "data-analytics-etl": {
-    src: "https://raw.githubusercontent.com/oreoluwadaniel/data-analytics-etl-portfolio/main/04-sales-reporting-etl/reports/sales.png",
-    alt: "Multi-branch sales reporting dashboard from the project repository",
-  },
-};
 
 export function generateStaticParams() {
   return allProjects.map((p) => ({ slug: p.slug }));
@@ -51,7 +34,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!p) notFound();
   const index = allProjects.findIndex((x) => x.slug === slug);
   const next = allProjects[(index + 1) % allProjects.length];
-  const evidence = evidenceImages[p.slug];
+  const evidence = caseStudyEvidence[p.slug];
   const schema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -70,7 +53,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <section className="case-section"><div className="container copy"><div className="eyebrow">02 · Decision</div><h2>The decision to support</h2><p>{p.problem}</p><p>{p.objective}</p></div></section>
     <section className="case-section"><div className="container"><div className="eyebrow">03 · Analysis</div><h2>Data and approach</h2><div className="two-col" style={{marginTop:28}}><div><h3>Data</h3><ul className="case-list">{p.data.map(x=><li key={x}>{x}</li>)}</ul></div><div><h3>Questions</h3><ul className="case-list">{p.questions.map(x=><li key={x}>{x}</li>)}</ul></div></div><ol className="case-list numbered" style={{marginTop:30}}>{p.work.map(x=><li key={x}>{x}</li>)}</ol><div className="workflow">{p.workflow.map(x=><div key={x}>{x}</div>)}</div></div></section>
     <section className="case-section"><div className="container"><div className="eyebrow">04 · Findings</div><h2>Key findings</h2><div className="finding-grid">{p.findings.map((x,i)=><div className="card finding" key={x}><span className="fnum">{String(i+1).padStart(2,"0")}</span><p>{x}</p></div>)}</div></div></section>
-    {evidence && <section className="case-section evidence-section"><div className="container"><div className="eyebrow">Evidence</div><h2>Project evidence</h2><figure className="evidence-frame"><img src={evidence.src} alt={evidence.alt} loading="lazy" /></figure></div></section>}
+    {evidence && evidence.length > 0 && <section className="case-section evidence-section"><div className="container"><div className="eyebrow">Evidence</div><h2>Project evidence</h2><p className="evidence-note">Screenshots from the finished reports and analysis. Select an image to enlarge it.</p><EvidenceGallery items={evidence} /></div></section>}
     <section className="case-section"><div className="container"><div className="eyebrow">05 · Action</div><h2>Recommended actions</h2><ul className="case-list">{p.recommendations.map(x=><li key={x}>{x}</li>)}</ul></div></section>
     <section className="case-section"><div className="container"><div className="eyebrow">06 · Tools</div><h2>Tools used</h2><div className="tag-list" style={{marginTop:20}}>{p.tools.map(t=><span className="tag" key={t}>{t}</span>)}</div></div></section>
     <section className="section-tight"><div className="container contact-box"><div><div className="eyebrow">Next project</div><h2 style={{marginTop:8}}>{next.title}</h2><p>{next.short}</p><Link className="btn btn-primary" href={`/work/${next.slug}`}>View case study →</Link></div><div><div className="eyebrow">Work with me</div><h3 style={{marginTop:8}}>Have a number nobody can explain?</h3><p className="small">Tell me what the report says and what you suspect it is hiding.</p><Link className="btn btn-secondary" href="/contact">Get in touch</Link></div></div></section>
