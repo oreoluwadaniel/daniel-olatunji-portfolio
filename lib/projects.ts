@@ -155,26 +155,64 @@ export const projects: Project[] = [
     technical: ["Collection ratio = cash received ÷ net billed. Gap = net billed − cash received.", "Write-off rate = write-off value ÷ billing base shown on the page.", "Days late = payment date − (invoice date + payer terms)."],
   },
   {
-    slug: "ab-testing-experimentation",
-    title: "A/B Testing: Two Releases Tested, and Why One Win Needed a Warning",
-    category: "Experimentation & Product Analytics",
-    short: "Two product tests taken to a release decision. Both new versions won, and the app test showed that few users were opening the feature.",
-    status: "Python analysis · synthetic experiment data",
-    cover: "/case-studies/ab-testing-landing-page-results.webp",
-    github: "https://github.com/oreoluwadaniel/ab-testing-case-studies",
-    scale: "8,200 website visitors over 42 days · 7,500 new app users",
-    tools: ["Python", "SciPy", "statsmodels", "pandas", "Power BI"],
-    problem: "A redesigned landing page and a new setup assistant in a mobile app were both ahead in testing. A lead can come from chance, or be too small to justify a release, and measuring only users who chose a feature flatters its result.",
-    goal: "Goal: reach a release or hold decision on both changes. Result: met. Both tests support release, and the app test also shows where the next effort should go.",
-    questions: [{"q": "Were users split fairly between versions?", "a": "Yes. The landing page split was 4,120 and 4,080 people, and the app split was 3,714 and 3,786 users, with each person counted once."}, {"q": "How big is the improvement and what is the realistic range?", "a": "Landing page conversion rose from 3.08% to 4.44%, 44% more visitors converting. App seven-day activity rose from 36.54% to 40.65%, 11% more users active."}, {"q": "Does it hold across devices?", "a": "Yes. The result was checked by phone type, app version and traffic source before the recommendation."}, {"q": "Are we measuring everyone shown the change, or only those who used it?", "a": "Everyone shown it, plus a separate view of users who opened it. Only 37.8% opened it."}],
-    data: ["Landing page: 8,435 visits from 8,200 people over 42 days, 4,120 on the old page and 4,080 on the new", "App: 7,500 new users, 3,714 on the old setup and 3,786 on the new"],
-    approach: ["Counted each person once, not each visit.", "Tested whether the gap between versions could be chance, and reported the range around each result.", "Checked results by device and traffic source.", "Measured all users shown the change separately from the users who opened it.", "Checked that the sample was large enough to detect a gap worth acting on."],
-    findings: ["The new landing page converts 44% better (4.44% against 3.08%), and visitors also leave less (65.5% exit against 58.8%) and stay 22% longer (37.3 against 30.5 seconds). Three measures moved the same way, which makes the win more credible than conversion alone.", "Counting visits instead of people changes the answer. Repeat visitors would be counted as extra chances to convert, so the unit has to be fixed before a test starts.", "The assistant lifted seven-day activity by 4.11 points, but only 37.8% of assigned users opened it. If the lift came only from those who opened it, the effect on them is about 10.9 points (4.11 ÷ 0.378). That is an estimate that assumes users who did not open it were unaffected.", "The adoption gap is the biggest opportunity. At the estimated 10.9 points per user who opens it, moving the opening rate from 37.8% to 60% would lift activity by about 6.5 points, against 4.1 today. This is an estimate, not a result.", "Users who opened the assistant were more active than those who did not, but they chose to open it, so that comparison cannot be used to claim the assistant caused the difference."],
-    implications: "Both changes should ship. The landing page win is large and consistent across three measures. The app result moves the next question from whether the assistant works to why 62% of users never open it, because that is where the largest remaining gain sits.",
-    recommendations: ["Release the new landing page and watch conversion after launch, comparing with the 4.44% from the test.", "Release the setup assistant, then test ways to get more users to open it, such as a prompt on first launch, with the opening rate as the measure.", "Report the lift for everyone assigned, not for users who opened the assistant, because opening it was a choice.", "Agree the smallest improvement worth shipping and whether the unit is people or visits before the next test starts."],
-    impact: "Potential. The tests support release, but the effect after launch has not been measured. The 6.5-point figure is an estimate under the stated assumption.",
-    limits: ["The tests used synthetic experiment data prepared for the case study.", "The 10.9-point effect assumes users who did not open the assistant were unaffected by it.", "Users who opened the assistant chose to, so their higher activity cannot all be credited to it."],
-    technical: ["Unit of analysis: unique person.", "Two-sample comparison with confidence intervals, checked by device and source.", "Intent-to-treat measure for everyone assigned, separate from usage."],
+    slug: "b2b-saas-customer-revenue-analytics",
+    title: "B2B SaaS: Connecting Recurring Revenue, Customer Usage and Collections",
+    category: "SaaS Revenue & Customer Analytics",
+    short: "A SQL analysis that brings subscriptions, product activity, invoices and payments together to show whether revenue is growing, customers are disengaging, and billed money is being collected.",
+    status: "SQL analysis · synthetic SaaS data",
+    cover: "/case-studies/saas-revenue-overview.svg",
+    github: "https://github.com/oreoluwadaniel/saas-analytics-portfolio",
+    scale: "5,000 customers and subscriptions · 6,000 invoices and payments · 7,000+ product usage records",
+    tools: ["SQL Server", "T-SQL"],
+    problem: "A SaaS company can report healthy recurring revenue while customers are cancelling, product use is falling, and invoices remain unpaid. When subscriptions, usage, invoices and payments are reviewed separately, managers cannot see which accounts need attention first.",
+    goal: "Bring revenue, customer engagement and collections into one connected analysis. The project uses three linked case studies to help management understand revenue movement, spot signs of disengagement, and identify unpaid or partly paid invoices.",
+    questions: [
+      { q: "Is recurring revenue growing, and what is driving the change?", a: "The revenue analysis separates new revenue and expansion from contraction and cancellations. This prevents one headline MRR figure from hiding the reasons revenue changed." },
+      { q: "Which customers may be losing value from the product?", a: "The usage analysis compares customer activity and feature adoption with subscription history. It helps identify accounts that are still subscribed but may be becoming less engaged." },
+      { q: "How much has been billed, paid, and left outstanding?", a: "The billing analysis connects invoices with payment records and distinguishes full payments, partial payments, failed payments and unpaid balances. Billed revenue is not treated as collected cash." },
+      { q: "Which accounts should the team review first?", a: "The three views can be used together to prioritise accounts with revenue at risk, falling product activity or overdue balances. The team should confirm each account's situation before taking action." }
+    ],
+    data: [
+      "Synthetic records for 5,000 customers and subscriptions across five pricing plans",
+      "6,000 invoices and 6,000 payment records",
+      "More than 7,000 product usage events across tracked product features",
+      "Customer, subscription, plan, invoice, payment and usage records"
+    ],
+    approach: [
+      "Reviewed the customer, subscription, plan, usage, invoice and payment records before calculating business measures.",
+      "Used SQL Server and T-SQL to analyse recurring revenue, customer activity, subscription changes and billing outcomes.",
+      "Separated revenue movements so new sales and expansion do not conceal contraction or cancellations.",
+      "Compared product activity and feature use to help identify customers whose engagement may be weakening.",
+      "Matched invoices with payment records and kept unpaid, partial and failed payments visible for follow-up.",
+      "Kept revenue, retention and collections as separate views that can be read together when deciding which accounts need attention."
+    ],
+    findings: [
+      "A recurring revenue total does not explain why it changed. New sales and account expansion can offset cancellations, so revenue movement needs to be split into its component parts.",
+      "An active subscription does not prove that a customer is getting value from the product. Falling activity and limited feature use are reasons to review an account before it cancels.",
+      "The amount invoiced and the amount collected answer different questions. Unpaid, partial and failed payments need to remain visible rather than being counted as cash received.",
+      "Revenue risk, declining usage and overdue invoices provide different reasons to contact a customer. Reviewing these signals together gives the team a more useful starting point than a single broad churn label."
+    ],
+    implications: "Finance can see whether recurring revenue is changing and where money remains outstanding. Customer Success can review accounts whose product use is weakening. Revenue Operations can direct collection work toward unpaid balances. These are decision-support signals, not proof that a customer will churn or that every outstanding invoice can be recovered.",
+    recommendations: [
+      "Review new, expansion, contraction and cancelled revenue separately each month, and investigate material changes before reporting the headline MRR movement.",
+      "Give Customer Success a review list of accounts with declining activity or low feature adoption, then confirm the cause directly before classifying an account as at risk.",
+      "Prioritise invoice follow-up by outstanding amount, age and payment status, and record recovered cash separately from amounts under review.",
+      "Compare payment problems with later cancellations to test whether failed or late payments provide a useful early warning in this dataset.",
+      "Assign an owner and next action to each account selected for follow-up, then measure whether the action changes collection or retention outcomes."
+    ],
+    impact: "No real-company impact is claimed. The dataset is synthetic, so this project demonstrates how SQL analysis can support revenue reviews, customer follow-up and collection priorities. Any claimed reduction in churn or increase in recovered cash would need to be measured after a team uses the recommendations.",
+    limits: [
+      "The dataset is synthetic and does not represent results from a real SaaS company.",
+      "Usage patterns and payment problems may be associated with churn, but the analysis alone cannot prove that they cause it.",
+      "Revenue, churn and collection figures depend on clear definitions and a consistent reporting period. The SQL definitions should be reviewed before results are used for business reporting.",
+      "A customer flagged for review is not automatically going to cancel, and an unpaid invoice is not automatically unrecoverable."
+    ],
+    technical: [
+      "The repository contains three related analyses: recurring revenue and churn, customer usage and engagement, and billing and revenue recovery.",
+      "Recurring revenue measures include MRR movement, churn and customer value; usage measures include active customers and feature adoption; billing measures include billed versus collected amounts, invoice aging and payment performance.",
+      "SQL Server and T-SQL are used for the analysis. The source dataset is synthetic, with customers, subscriptions, usage events, invoices and payments connected through shared identifiers.",
+      "Review the repository's SQL definitions before quoting a particular metric or total. No operational outcome is presented as measured."
+    ],
   },
   {
     slug: "weatherintel",
