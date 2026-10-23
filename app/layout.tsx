@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
 };
 
-const personSchema = { "@context": "https://schema.org", "@type": "Person", name: "Daniel Olatunji", jobTitle: "Senior Data Analyst and Power BI Developer", url: siteUrl, email: "mailto:danolatunji25@gmail.com", image: siteUrl + "/images/daniel-olatunji.svg", sameAs: ["https://medium.com/@oluwafikayore", "https://github.com/oreoluwadaniel"], knowsAbout: ["Data Analysis", "Business Intelligence", "Power BI", "DAX", "SQL", "PostgreSQL", "Python", "Data Quality", "ETL", "Dimensional Modelling", "Microsoft Azure", "Microsoft Fabric", "Forecasting", "Statistics"] };
+const personSchema = { "@context": "https://schema.org", "@type": "Person", name: "Daniel Olatunji", jobTitle: "Data Analyst and Business Intelligence Analyst", url: siteUrl, email: "mailto:danolatunji25@gmail.com", image: siteUrl + "/images/daniel-olatunji.svg", sameAs: ["https://medium.com/@oluwafikayore", "https://github.com/oreoluwadaniel"], knowsAbout: ["Data Analysis", "Business Intelligence", "Power BI", "DAX", "SQL", "PostgreSQL", "Python", "Data Quality", "ETL", "Dimensional Modelling", "Microsoft Azure", "Microsoft Fabric", "Forecasting", "Statistics"] };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return <html lang="en-GB"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} /><a className="skip" href="#main">Skip to content</a><Header /><div id="main">{children}</div><Footer /></body></html>;
