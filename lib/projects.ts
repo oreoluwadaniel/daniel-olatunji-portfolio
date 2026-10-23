@@ -167,8 +167,8 @@ export const projects: Project[] = [
     problem: "A SaaS company can report healthy recurring revenue while customers are cancelling, product use is falling, and invoices remain unpaid. When subscriptions, usage, invoices and payments are reviewed separately, managers cannot see which accounts need attention first.",
     goal: "Bring revenue, customer engagement and collections into one connected analysis. The project uses three linked case studies to help management understand revenue movement, spot signs of disengagement, and identify unpaid or partly paid invoices.",
     questions: [
-      { q: "Is recurring revenue growing, and what is driving the change?", a: "The revenue analysis separates new revenue and expansion from contraction and cancellations. This prevents one headline MRR figure from hiding the reasons revenue changed." },
-      { q: "Which customers may be losing value from the product?", a: "The usage analysis compares customer activity and feature adoption with subscription history. It helps identify accounts that are still subscribed but may be becoming less engaged." },
+      { q: "Is recurring revenue growing, and what is driving the change?", a: "The revenue analysis separates money from new customers and customers paying more from reductions in existing accounts and cancellations. This prevents one monthly recurring revenue total from hiding why revenue changed." },
+      { q: "Which customers may be losing value from the product?", a: "The usage analysis compares customer activity and use of product features with subscription history. It helps identify accounts that are still subscribed but may be using the product less." },
       { q: "How much has been billed, paid, and left outstanding?", a: "The billing analysis connects invoices with payment records and distinguishes full payments, partial payments, failed payments and unpaid balances. Billed revenue is not treated as collected cash." },
       { q: "Which accounts should the team review first?", a: "The three views can be used together to prioritise accounts with revenue at risk, falling product activity or overdue balances. The team should confirm each account's situation before taking action." }
     ],
@@ -187,14 +187,14 @@ export const projects: Project[] = [
       "Kept revenue, retention and collections as separate views that can be read together when deciding which accounts need attention."
     ],
     findings: [
-      "A recurring revenue total does not explain why it changed. New sales and account expansion can offset cancellations, so revenue movement needs to be split into its component parts.",
-      "An active subscription does not prove that a customer is getting value from the product. Falling activity and limited feature use are reasons to review an account before it cancels.",
+      "A recurring revenue total does not explain why it changed. New customers and customers paying more can offset cancellations, so the reasons for the change need to be shown separately.",
+      "An active subscription does not prove that a customer is getting value from the product. Falling activity and limited use of product features are reasons to review an account before it cancels.",
       "The amount invoiced and the amount collected answer different questions. Unpaid, partial and failed payments need to remain visible rather than being counted as cash received.",
       "Revenue risk, declining usage and overdue invoices provide different reasons to contact a customer. Reviewing these signals together gives the team a more useful starting point than a single broad churn label."
     ],
     implications: "Finance can see whether recurring revenue is changing and where money remains outstanding. Customer Success can review accounts whose product use is weakening. Revenue Operations can direct collection work toward unpaid balances. These are decision-support signals, not proof that a customer will churn or that every outstanding invoice can be recovered.",
     recommendations: [
-      "Review new, expansion, contraction and cancelled revenue separately each month, and investigate material changes before reporting the headline MRR movement.",
+      "Review revenue from new customers, higher customer payments, lower customer payments and cancellations separately each month. Investigate material changes before reporting the monthly recurring revenue total.",
       "Give Customer Success a review list of accounts with declining activity or low feature adoption, then confirm the cause directly before classifying an account as at risk.",
       "Prioritise invoice follow-up by outstanding amount, age and payment status, and record recovered cash separately from amounts under review.",
       "Compare payment problems with later cancellations to test whether failed or late payments provide a useful early warning in this dataset.",
@@ -209,7 +209,7 @@ export const projects: Project[] = [
     ],
     technical: [
       "The repository contains three related analyses: recurring revenue and churn, customer usage and engagement, and billing and revenue recovery.",
-      "Recurring revenue measures include MRR movement, churn and customer value; usage measures include active customers and feature adoption; billing measures include billed versus collected amounts, invoice aging and payment performance.",
+      "Revenue measures include monthly recurring revenue, cancellations and customer value; usage measures include active customers and use of product features; billing measures include amounts billed versus collected, how long invoices have been unpaid, and payment performance.",
       "SQL Server and T-SQL are used for the analysis. The source dataset is synthetic, with customers, subscriptions, usage events, invoices and payments connected through shared identifiers.",
       "Review the repository's SQL definitions before quoting a particular metric or total. No operational outcome is presented as measured."
     ],
