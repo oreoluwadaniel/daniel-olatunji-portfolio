@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">SaaS revenue, customer usage and collections</title>
+<desc id="desc">A dark teal analytical cover with revenue movement, customer activity and invoice collection panels.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#102b2b"/><stop offset="1" stop-color="#071514"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1370" cy="120" r="310" fill="#1b665e" opacity=".2"/>
+<text x="110" y="155" fill="#8de0cf" font-family="Arial,sans-serif" font-size="24" letter-spacing="5">BUSINESS INTELLIGENCE CASE STUDY</text>
+<text x="110" y="245" fill="#f2faf7" font-family="Arial,sans-serif" font-size="62" font-weight="700">B2B SaaS Analytics</text>
+<text x="110" y="310" fill="#c3d9d3" font-family="Arial,sans-serif" font-size="31">Revenue · Customer Usage · Collections</text>
+<g transform="translate(110 390)">
+<rect width="410" height="300" rx="22" fill="#153b38" stroke="#367d71" stroke-width="2"/>
+<text x="32" y="50" fill="#b5d8d0" font-family="Arial,sans-serif" font-size="23">RECURRING REVENUE</text>
+<path d="M35 220 L105 190 L175 205 L245 135 L315 145 L375 85" fill="none" stroke="#72dfc4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 250 H375" stroke="#54847b" stroke-width="2"/>
+<circle cx="375" cy="85" r="10" fill="#72dfc4"/>
+</g>
+<g transform="translate(595 390)">
+<rect width="410" height="300" rx="22" fill="#153b38" stroke="#367d71" stroke-width="2"/>
+<text x="32" y="50" fill="#b5d8d0" font-family="Arial,sans-serif" font-size="23">CUSTOMER ACTIVITY</text>
+<rect x="40" y="165" width="48" height="85" rx="6" fill="#438e81"/><rect x="115" y="125" width="48" height="125" rx="6" fill="#58b7a2"/><rect x="190" y="150" width="48" height="100" rx="6" fill="#438e81"/><rect x="265" y="95" width="48" height="155" rx="6" fill="#72dfc4"/><rect x="340" y="120" width="32" height="130" rx="6" fill="#438e81"/>
+<path d="M35 250 H375" stroke="#54847b" stroke-width="2"/>
+</g>
+<g transform="translate(1080 390)">
+<rect width="410" height="300" rx="22" fill="#153b38" stroke="#367d71" stroke-width="2"/>
+<text x="32" y="50" fill="#b5d8d0" font-family="Arial,sans-serif" font-size="23">BILLING &amp; COLLECTIONS</text>
+<rect x="35" y="100" width="340" height="42" rx="8" fill="#72dfc4"/>
+<rect x="35" y="160" width="250" height="42" rx="8" fill="#438e81"/>
+<rect x="35" y="220" width="155" height="42" rx="8" fill="#d4a85b"/>
+</g>
+<text x="110" y="790" fill="#8ea9a2" font-family="Arial,sans-serif" font-size="22">5,000 customers and subscriptions · 6,000 invoices and payments · 7,000+ usage records</text>
+</svg>
