@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div>
           <strong>Daniel Olatunji</strong>
-          <p className="small">Senior Data Analyst | Power BI Developer</p>
+          <p className="small">Data Analyst | Business Intelligence Analyst</p>
           <p className="small">© 2026 Daniel Olatunji</p>
         </div>
         <div className="footer-links">
