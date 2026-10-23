@@ -6,7 +6,7 @@ const capabilities: [string, string][] = [
   ["Credit and payment risk", "Size default and failed-payment exposure, and test whether the risk labels in use hold up."],
   ["Operations reporting", "Connect delivery, delay, fleet and stock records so one report shows where service is slipping."],
   ["Revenue cycle and collections", "Split billed revenue into cash received, written off and still owed, by payer and cause."],
-  ["Experiments and forecasts", "Test whether a change or a forecast beats the simple alternative by enough to act on."],
+  ["Revenue and customer health", "Separate recurring revenue growth from churn, falling product use and unpaid invoices."],
   ["Data quality and migration", "Find duplicates, missing owners and broken links, and keep failed records visible instead of deleting them."],
 ];
 
@@ -20,10 +20,10 @@ const steps: [string, string, string][] = [
 export default function Home() {
   return <main>
     <section className="hero"><div className="container hero-grid"><div className="hero-copy">
-      <div className="eyebrow">Senior Data Analyst · Power BI Developer</div>
+      <div className="eyebrow">Data Analyst | Business Intelligence Analyst</div>
       <h1>Daniel Olatunji</h1>
       <p className="hero-role">I find where a business loses money and show what to do about it.</p>
-      <p>I build Power BI reports and SQL analysis that start with a business problem and end with a ranked list of actions. My case studies cover lending, payments, logistics, retail, shipping and healthcare.</p>
+      <p>I build Power BI reports and SQL analysis that start with a business problem and end with a ranked list of actions. My case studies cover revenue, customer behaviour, lending risk, payments, retail and logistics. They show what is changing, where the problem sits, and what action the evidence supports.</p>
       <p>Each one shows the reasoning behind the charts: how the data was prepared, how every measure is defined, what the numbers can and cannot prove, and what the business should do next.</p>
       <div className="actions"><Link className="btn btn-primary" href="/work">See the work</Link><a className="btn btn-secondary" href="/cv/Daniel_Olatunji_CV.pdf" download>Download CV</a><Link className="btn btn-secondary" href="/contact">Get in touch</Link></div>
     </div><div className="portrait"><img src="/images/daniel-olatunji.svg" alt="Daniel Olatunji" width="900" height="1100" fetchPriority="high" decoding="async" /></div></div></section>
