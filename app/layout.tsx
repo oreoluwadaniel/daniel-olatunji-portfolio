@@ -7,14 +7,14 @@ const siteUrl = "https://daniel-olatunji-portfolio.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Daniel Olatunji | Senior Data Analyst & Power BI Developer", template: "%s | Daniel Olatunji" },
-  description: "Senior data analyst and Power BI developer. Ten case studies on profit, credit risk, payments, logistics, shipping, healthcare billing, experiments and data quality.",
+  title: { default: "Daniel Olatunji | Data Analyst & Business Intelligence Analyst", template: "%s | Daniel Olatunji" },
+  description: "Data Analyst and Business Intelligence Analyst. Case studies on profit, revenue, customer behaviour, credit risk, payments, logistics and data quality.",
   keywords: ["data analyst", "business intelligence analyst", "Power BI analyst", "SQL analyst", "data quality", "remote data analyst", "analytics consultant"],
   authors: [{ name: "Daniel Olatunji", url: siteUrl }],
   creator: "Daniel Olatunji",
   alternates: { canonical: siteUrl },
-  openGraph: { title: "Daniel Olatunji | Senior Data Analyst & Power BI Developer", description: "Ten case studies on profit, credit risk, payments, logistics, shipping, healthcare billing, experiments and data quality.", url: siteUrl, siteName: "Daniel Olatunji", locale: "en_GB", type: "website" },
-  twitter: { card: "summary_large_image", title: "Daniel Olatunji | Senior Data Analyst & Power BI Developer", description: "Ten case studies on profit, credit risk, payments, logistics, shipping, healthcare billing, experiments and data quality." },
+  openGraph: { title: "Daniel Olatunji | Data Analyst & Business Intelligence Analyst", description: "Case studies on profit, revenue, customer behaviour, credit risk, payments, logistics and data quality.", url: siteUrl, siteName: "Daniel Olatunji", locale: "en_GB", type: "website" },
+  twitter: { card: "summary_large_image", title: "Daniel Olatunji | Data Analyst & Business Intelligence Analyst", description: "Ten case studies on profit, credit risk, payments, logistics, shipping, healthcare billing, experiments and data quality." },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
 };
